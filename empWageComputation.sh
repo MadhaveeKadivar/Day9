@@ -1,4 +1,4 @@
-echo " Welcome to Employee Wge computation Program on Master Branch"
+echo " Welcome to Employee Wage computation Program on Master Branch"
 check=$((RANDOM%2))
 if(($check==0))
 then echo "Employee is Absent"
