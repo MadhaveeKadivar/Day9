@@ -2,6 +2,7 @@ echo " Welcome to Employee Wage computation Program on Master Branch"
 check=$((RANDOM%3))
 wagePerHour=20
 DayHour=0
+totalWorkingDays=20
 case $check in
 	0)
 		echo "Employee is Absent"
@@ -15,5 +16,7 @@ case $check in
                 DayHour=4
                 ;;
 esac
-
-echo "Daily Wage of the Employee is : $(($wagePerHour*$DayHour))"
+dailyWage=$(($wagePerHour*$DayHour))
+echo "Daily Wage of the Employee is : $dailyWage"
+monthWages=$(($dailyWage*$totalWorkingDays))
+echo "Month Wages of the Employee is : $monthWages"
