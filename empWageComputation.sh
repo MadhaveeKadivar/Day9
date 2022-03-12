@@ -1,13 +1,18 @@
 echo " Welcome to Employee Wage computation Program on Master Branch"
-check=$((RANDOM%2))
+check=$((RANDOM%3))
 wagePerHour=20
-fullDayHour=0
+DayHour=0
 if(($check==0))
 then
 	echo "Employee is Absent"
-	echo "Daily Wage of the Employee is : $(($wagePerHour*$fullDayHour))"
+	echo "Daily Wage of the Employee is : $(($wagePerHour*$DayHour))"
+elif(($check==1))
+then
+	echo "Employe is Present for Part Time"
+        DayHour=4
+        echo "Daily Wage of the Employee is : $(($wagePerHour*$DayHour))"
 else
-	echo "Employe  is Present"
-	fullDayHour=8
-	echo "Daily Wage of the Employee is : $(($wagePerHour*$fullDayHour))"
+	echo "Employe is Present for Full Time"
+	DayHour=8
+	echo "Daily Wage of the Employee is : $(($wagePerHour*$DayHour))"
 fi
