@@ -28,9 +28,10 @@ do
 		totalWorkingHour=$(($totalWorkingHour - $wHour));
 		break;
 	fi
-	salary=$(($wagePerHour * $wHour));
-	totalSalary=$(($totalSalary + $salary));
+	dailyWage=$(($wagePerHour * $wHour));
+	totalSalary=$(($totalSalary + $dailyWage));
 	((day++));
+	echo "Daily Wages = $dailyWage and Total Wage = $totalSalary"
 done
 echo "Employee has earned $totalSalary $ in a month"
 echo "Total working Hour : $totalWorkingHour"
