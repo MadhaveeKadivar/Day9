@@ -1,22 +1,36 @@
-echo " Welcome to Employee Wage computation Program on Master Branch"
-check=$((RANDOM%3))
-wagePerHour=20
-DayHour=0
-totalWorkingDays=20
-case $check in
-	0)
-		echo "Employee is Absent"
-	   	;;
-	1)
-		echo "Employe is Present for Full Time"
-		DayHour=8
+wagePerHour=20;
+workingHour=0;
+totalSalary=0;
+totalWorkingHour=0;
+day=1;
+while [[ $day -le 20 && $totalWorkingHour -le 100 ]]
+do
+	isPresent=$((RANDOM%3));
+	case $isPresent in
+		0)
+		echo "Employee is absent";
+		workingHour=0;
 		;;
-	2)
-		echo "Employe is Present and working as Part Time"
-                DayHour=4
-                ;;
-esac
-dailyWage=$(($wagePerHour*$DayHour))
-echo "Daily Wage of the Employee is : $dailyWage"
-monthWages=$(($dailyWage*$totalWorkingDays))
-echo "Month Wages of the Employee is : $monthWages"
+
+		1)
+		echo "Employee is present";
+		workingHour=8;
+		;;
+
+		2)
+		echo "Employee is working as part time";
+		workingHour=4;
+		;;
+	esac
+	totalWorkingHour=$(($totalWorkingHour + $workingHour));
+	if [ $totalWorkingHour -gt 100 ]
+	then
+		totalWorkingHour=$(($totalWorkingHour - $workingHour));
+		break;
+	fi
+	dailyWage=$(($wagePerHour * $workingHour));
+	totalSalary=$(($totalSalary + $dailyWage));
+	((day++));
+done
+echo "Employee has earned $totalSalary $ in a month "
+echo "Total working Hour : $totalWorkingHour"
